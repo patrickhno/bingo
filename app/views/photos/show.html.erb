@@ -1,37 +1,37 @@
 
 <div id="photo-view" class="spotlight-container">
-	<div style="margin: 5%"  align="center">
+  <div style="margin: 5%"  align="center">
 
-		<table>
-		  <table>
-		    <tr>
-		    	<td>
-						<%= image_tag "left.png", :size => "32x32", :id => 'prev_album' %>
-		  		</td><td>
-		  			<h2><%= @album.name %> album</h2>
-		  		</td><td>
-		  			<%= image_tag "right.png", :size => "32x32", :id => 'next_album' %>
-		  		</td>
-		  	</tr>
-		  </table>
+    <table>
+      <table>
+        <tr>
+          <td>
+            <%= image_tag "left.png", :size => "32x32", :id => 'prev_album' %>
+          </td><td>
+            <h2><%= @album.name %> album</h2>
+          </td><td>
+            <%= image_tag "right.png", :size => "32x32", :id => 'next_album' %>
+          </td>
+        </tr>
+      </table>
 
-		  <table>
-		    <tr>
-		    	<td>
-		  			<%= image_tag "left.png", :id => 'prev_photo'%>
-		  		</td><td>
-						<%= image_tag @photo.image.url, :size => "600x400" %>
-		  		</td><td>
-		  			<%= image_tag "right.png", :id => 'next_photo'%>
-		  		</td>
-		  	</tr>
-		  </table>
+      <table>
+        <tr>
+          <td>
+            <%= image_tag "left.png", :id => 'prev_photo'%>
+          </td><td>
+            <%= image_tag @photo.image.url, :size => "600x400" %>
+          </td><td>
+            <%= image_tag "right.png", :id => 'next_photo'%>
+          </td>
+        </tr>
+      </table>
 
-			<br>
-			<%= @photo.content %>
-		</table>
+      <br>
+      <%= @photo.content %>
+    </table>
 
-	</div>
+  </div>
 
 </div>
 
