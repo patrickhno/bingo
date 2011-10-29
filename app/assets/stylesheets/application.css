@@ -1,0 +1,50 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+html,body{
+	margin: 0px;
+	padding: 0px;
+
+	width: 100%;
+	height: 100%;
+}
+
+.spotlight-container{
+	position: absolute;
+	top: 0px;
+	left: 150px;
+
+	color: white;
+
+	width: 100%;
+	height: 100%;
+
+	background-image:
+	  -webkit-gradient(linear,left bottom,left top,color-stop(0, #1f1f1f),color-stop(0.6, #1f1f1f));
+
+	background-image: 
+		-moz-linear-gradient(center bottom,#1f1f1f 0%,#000000 60%); 
+
+	overflow: hidden;
+}
+.spotlight-container:before{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+/*
+	content: "";
+*/
+	/* Webkit eliptical gradient*/
+	background-image: -webkit-gradient(radial, 50% 35%, 100, 50% 35%, 500, from(rgba(255,255,255,0.09)), to(rgba(255,255,255,0)));
+		-webkit-transform: scale(1.0,1.0);
+
+	/* Firefox eliptical gradient*/
+	background-image: -moz-radial-gradient(50% 35%, circle, rgba(255,255,255,0.09) 100px, rgba(255,255,255,0) 500px);	
+		-moz-transform: scale(1.0,1.0);
+
+}

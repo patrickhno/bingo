@@ -1,0 +1,25 @@
+<div id="tree-view" class="demo">
+	<ul>
+		<% @albums.each_with_index do |album,i| %>
+			<li id="albums/<%= album.id %>" <% if i==0 %>class="jstree-open"<% end %>>
+				<a href="#"><%= album.name %></a>
+				<ul>
+					<% album.photos.each do |photo| %>
+						<li id="albums/<%= album.id %>/photos/<%= photo.id %>">
+							<a href="#"><%= photo.name %></a>
+						</li>
+					<% end %>
+				</ul>
+			</li>
+		<% end %>
+</div>
+
+<% # parameters used by javascript %>
+<input type="hidden" value="0" id="current_album" />
+<input type="hidden" value="0" id="current_photo" />
+
+<div id="photo-view" class="spotlight-container">
+  <div style="margin: 10%">
+    <%= image_tag "photo4.jpg"%>
+  </div>
+</div>
