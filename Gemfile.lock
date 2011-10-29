@@ -128,7 +128,6 @@ PLATFORMS
 
 DEPENDENCIES
   awesome_print
-  bson
   bson_ext (~> 1.4)
   carrierwave
   carrierwave-mongoid
