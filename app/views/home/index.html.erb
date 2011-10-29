@@ -18,8 +18,4 @@
 <input type="hidden" value="0" id="current_album" />
 <input type="hidden" value="0" id="current_photo" />
 
-<div id="photo-view" class="spotlight-container">
-  <div style="margin: 10%">
-    <%= image_tag "photo4.jpg"%>
-  </div>
-</div>
+<%= render :template => 'photos/show' %>
