@@ -39,7 +39,7 @@ gem 'awesome_print'
 
 gem "mongoid", "~> 2.3"
 gem "bson_ext", "~> 1.4"
-gem 'bson'
+#gem 'bson'
 gem 'carrierwave'
 gem 'carrierwave-mongoid'
 gem 'mini_magick'
