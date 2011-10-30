@@ -7,12 +7,7 @@ class PhotosController < ApplicationController
   	@album = Album.find(params[:album_id])
     @photo = @album.photos.find(params[:id])
 
-    render :layout => false
-
-    #respond_to do |format|
-    #  format.html # show.html.erb
-    #  format.json { render json: @photo }
-    #end
+    render :layout => 'photos'
   end
 
   # POST /albums/1/photos
