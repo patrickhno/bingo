@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 class @Album
+	# Fetch the album list from the server
 	this.initialize = () ->
 		window.album  = 0
 		window.photo = 0
@@ -23,16 +24,12 @@ class @Album
 		$.ajax(args)
 
 	this.album = (n = -1) ->
-		this.initialize() unless window.album?
-
 		if n >= 0
 			window.album = n
 			window.photo = 0
 		return window.album
 
 	this.photo = (n = -1) ->
-		this.initialize() unless window.photo?
-
 		window.photo = n if n >= 0
 		return window.photo
 
@@ -57,6 +54,10 @@ class @Album
 		path = "#albums_" + window.albums[this.album()].id + "_photos_" + window.albums[this.album()].photos[this.photo()]
 		$("#tree-view").jstree("select_node", $(path))
 
+	# on selections in the jstree the id of the selected element is sent here
+	# @param [string] id The id of the selected element
+	#
+	# Searches through the albums to define wich album number and which photo number we are currently viewing
 	this.selected = (id) ->
 		this.initialize() unless window.album?
 
