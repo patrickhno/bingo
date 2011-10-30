@@ -23,36 +23,46 @@ class @Album
 
 		$.ajax(args)
 
+	# set/get current album number
 	this.album = (n = -1) ->
 		if n >= 0
 			window.album = n
 			window.photo = 0
 		return window.album
 
+	# set/get current photo number
 	this.photo = (n = -1) ->
 		window.photo = n if n >= 0
 		return window.photo
 
+	# navigate to the previous album
 	this.previous = () ->
 		this.album((this.album()+window.albums.length-1) % window.albums.length)
 		this.paint()
 
+	# navigate to the next album
 	this.next = () ->
 		this.album((this.album()+1) % window.albums.length)
 		this.paint()
 
+	# navigate to the previous photo in the current album
 	this.previous_photo = () ->
 		this.photo((this.photo()+window.albums[this.album()].photos.length-1) % window.albums[this.album()].photos.length)
 		this.paint()
 
+	# navigate to the next photo in the current album
 	this.next_photo = () ->
 		this.photo((this.photo()+1) % window.albums[this.album()].photos.length)
 		this.paint()
 
+	# get the URL of the current photo
+	this.path = () ->
+		return "#albums_" + window.albums[this.album()].id + "_photos_" + window.albums[this.album()].photos[this.photo()]
+
+	# load current photo view
 	this.paint = () ->
 		$("#tree-view").jstree("deselect_all")
-		path = "#albums_" + window.albums[this.album()].id + "_photos_" + window.albums[this.album()].photos[this.photo()]
-		$("#tree-view").jstree("select_node", $(path))
+		$("#tree-view").jstree("select_node", $(this.path()))
 
 	# on selections in the jstree the id of the selected element is sent here
 	# @param [string] id The id of the selected element
